@@ -39,7 +39,7 @@ int main()
 }
 </code></pre>
 
-## 3. Variadic Function ##
+## 4. Variadic Function ##
    This function template is used for taking n number of variable.
    
 <pre><code>
