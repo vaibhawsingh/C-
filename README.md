@@ -58,3 +58,23 @@ int main()
     return 0;
 }
 </code></pre>
+
+### Another Example ###
+	
+<pre><code>
+using namespace std;
+auto sum_product(double a, double b)
+{
+	return make_pair(a+b, a*b);
+}
+int main()
+{
+    //old way
+    auto val = sum_product(3,4);
+    auto s = get&lt;0&gt;(val);
+    //c++ 11
+    float s;
+    tie(s,ignore) = sum_product(3,4);
+    return 0;
+}
+</code></pre>
