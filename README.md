@@ -10,6 +10,8 @@ This Documents will explains alomst all the C++ 11 concepts from zero level to a
 
 [3. Static Assertion](#3-static-assertion)
 
+[4. Variadic Function](#4-variadic-function)
+
 ------------------------------------------------------------------------------------------------------------------------------------
 ## 1. C++ 11 Introduction ##
 
@@ -35,4 +37,24 @@ int main()
 	add("JMV", 5);
     return 0;
 }
-</pre></code>
+</code></pre>
+
+## 3. Variadic Function ##
+   This function template is used for taking n number of variable.
+   
+<pre><code>
+
+using namespace std;
+auto add() { return 0; }
+template< typename H, typename... T>
+auto add(H h, T... t)
+{
+	return h + add(t...);
+}
+
+int main()
+{
+	add("JMV", 5,4);
+    return 0;
+}
+</code></pre>
