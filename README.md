@@ -19,14 +19,13 @@ This Documents will explains alomst all the C++ 11 concepts from zero level to a
 
 ## 3. Static Assertion ##
   static_assert function is used for checking the correctness of code.
-  
-  <pre><code>
+<pre><code>
 #include <type_traits>
 using namespace std;
 template< typename T, typename U>
 auto add(T t, U u)
 {
-	static_assert(is_integral<T>::value, "first value must be integral ");
+	static_assert(is_integral&gt;T&lt;::value, "first value must be integral ");
 
 	return t + u;
 }
