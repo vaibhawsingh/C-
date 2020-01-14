@@ -12,6 +12,8 @@ This Documents will explains alomst all the C++ 11 concepts from zero level to a
 
 [4. Variadic Function](#4-variadic-function)
 
+[5. Virtual Constructor](#4-virtual-constructor)
+
 ------------------------------------------------------------------------------------------------------------------------------------
 ## 1. C++ 11 Introduction ##
 
@@ -78,3 +80,8 @@ int main()
     return 0;
 }
 </code></pre>
+
+## 4. Virtual Constructor ##
+
+In C++ we can not have the virtual constructor. virtual comes into the picture when we call derived class function using base class pointer to derived class object. when a constructor of a class is executed there is no virtual table in the memory, means no virtual pointer defined yet. hence virtual constructor is not possible.
+
