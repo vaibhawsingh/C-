@@ -90,6 +90,8 @@ In C++ we can not have the virtual constructor. virtual comes into the picture w
 ## 6. Std Thread ##
 
 In c++11 thread is a class and it can be used as object. It can be created in 2 ways.
+<pre><code>
 std::thread threadObj(function);
-std::thread([&]() {this->KeyenceDataLoadAnalyseFunc(strData);}).detach();
+std::thread([&]() {this->MemberFuncion(parameter);}).detach();
+</code></pre>
 
