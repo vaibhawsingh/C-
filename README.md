@@ -14,6 +14,8 @@ This Documents will explains alomst all the C++ 11 concepts from zero level to a
 
 [5. Virtual Constructor](#4-virtual-constructor)
 
+[6. Std Thread](#4-std-thread)
+
 ------------------------------------------------------------------------------------------------------------------------------------
 ## 1. C++ 11 Introduction ##
 
@@ -84,4 +86,10 @@ int main()
 ## 5. Virtual Constructor ##
 
 In C++ we can not have the virtual constructor. virtual comes into the picture when we call derived class function using base class pointer to derived class object. when a constructor of a class is executed there is no virtual table in the memory, means no virtual pointer defined yet. hence virtual constructor is not possible.
+
+## 6. Std Thread ##
+
+In c++11 thread is a class and it can be used as object. It can be created in 2 ways.
+std::thread threadObj(function);
+std::thread([&]() {this->KeyenceDataLoadAnalyseFunc(strData);}).detach();
 
