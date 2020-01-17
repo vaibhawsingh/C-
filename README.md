@@ -24,6 +24,113 @@ This Documents will explains alomst all the C++ 11 concepts from zero level to a
 ## 2. Initializer List ##
 
   It is used to mainly initialize the variables of the class and it can initialize only part of the variables.
+   ### For initialization of non-static const data members ###
+<pre><code>
+class Test { 
+    const int t; 
+public: 
+    Test(int t):t(t) {}  //Initializer list must be used 
+    int getT() { return t; } 
+}; 
+</code></pre>
+   ### For initialization of reference members ###
+<pre><code>
+class Test 
+{ 
+    int &t; 
+public: 
+    Test(int &t):t(t) {}  //Initializer list must be used 
+    int getT() { return t; } 
+}; 
+</code></pre>
+   ### For initialization of member objects which do not have default constructor ### 
+<pre><code>
+class A { 
+    int i; 
+public: 
+    A(int ); 
+}; 
+  
+A::A(int arg) { 
+    i = arg; 
+    cout << "A's Constructor called: Value of i: " << i << endl; 
+} 
+  
+// Class B contains object of A 
+class B { 
+    A a; 
+public: 
+    B(int ); 
+}; 
+  
+B::B(int x):a(x) {  //Initializer list must be used 
+    cout << "B's Constructor called"; 
+} 
+</code></pre>
+If class A had both default and parameterized constructors, then Initializer List is not must if we want to initialize “a” using default constructor, but it is must to initialize “a” using parameterized constructor.
+  ### For initialization of base class members ###
+<pre><code>
+class A { 
+    int i; 
+public: 
+    A(int ); 
+}; 
+  
+A::A(int arg) { 
+    i = arg; 
+    cout << "A's Constructor called: Value of i: " << i << endl; 
+} 
+  
+// Class B is derived from A 
+class B: A { 
+public: 
+    B(int ); 
+}; 
+  
+B::B(int x):A(x) { //Initializer list must be used 
+    cout << "B's Constructor called"; 
+}
+</code></pre>
+   ### When constructor’s parameter name is same as data member ###
+<pre><code>
+class A { 
+    int i; 
+public: 
+    A(int ); 
+    int getI() const { return i; } 
+}; 
+  
+A::A(int i):i(i) { }  // Either Initializer list or this pointer must be used 
+/* The above constructor can also be written as  
+A::A(int i) {  
+    this->i = i; 
+} 
+*/
+</code></pre>
+   ### For Performance reasons ###
+<pre><code>
+// Without Initializer List 
+class MyClass { 
+    Type variable; 
+public: 
+    MyClass(Type a) {  // Assume that Type is an already 
+                     // declared class and it has appropriate  
+                     // constructors and operators 
+      variable = a; // assignment operator function called
+    } 
+}; 
+
+// With Initializer List 
+class MyClass { 
+    Type variable; 
+public: 
+    MyClass(Type a):variable(a) {   // Assume that Type is an already 
+                     // declared class and it has appropriate 
+                     // constructors and operators 
+		     //No assignment operator function called
+    } 
+}; 
+</code></pre>
 
 ## 3. Static Assertion ##
   static_assert function is used for checking the correctness of code.
