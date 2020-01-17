@@ -18,7 +18,7 @@ This Documents will explains alomst all the C++ 11 concepts from zero level to a
 
 [7. Class vs Struct](#7-class-vs-struct)
 
-[8. Access Modifiers](#8-access-modifiers)
+[8. Access Specifiers](#8-access-Specifiers)
 
 ------------------------------------------------------------------------------------------------------------------------------------
 ## 1. C++ 11 Introduction ##
@@ -214,7 +214,7 @@ std::thread([&]() {this->MemberFuncion(parameter);}).detach();
 
 Apart from this there is no difference. struct can be used for accumulating data types where as class can be used for object in real world.
 
-## 8. Access Modifiers ##
+## 8. Access Specifiers ##
 
 | Base class Component	|  Class Inherited as  | Resulting access inside the subclass |
 | ------------- | ------------- | ----------- |
