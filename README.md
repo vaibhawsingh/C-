@@ -102,4 +102,5 @@ std::thread([&]() {this->MemberFuncion(parameter);}).detach();
 |    Class	|    Struct	|
 | ------------- | ------------- |
 | private by default  | public by default  |
+
 Apart from this there is no difference. struct can be used for accumulating data types where as class can be used for object in real world.
