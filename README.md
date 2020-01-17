@@ -12,9 +12,11 @@ This Documents will explains alomst all the C++ 11 concepts from zero level to a
 
 [4. Variadic Function](#4-variadic-function)
 
-[5. Virtual Constructor](#4-virtual-constructor)
+[5. Virtual Constructor](#5-virtual-constructor)
 
-[6. Std Thread](#4-std-thread)
+[6. Std Thread](#6-std-thread)
+
+[7. Class vs Struct](#7-class-vs-struct)
 
 ------------------------------------------------------------------------------------------------------------------------------------
 ## 1. C++ 11 Introduction ##
@@ -95,3 +97,9 @@ std::thread threadObj(function);
 std::thread([&]() {this->MemberFuncion(parameter);}).detach();
 </code></pre>
 
+## 7. Class vs Struct ##
+
+|    Class	|    Struct	|
+| ------------- | ------------- |
+| private by default  | public by default  |
+Apart from this there is no difference. struct can be used for accumulating data types where as class can be used for object in real world.
