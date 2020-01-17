@@ -18,7 +18,9 @@ This Documents will explains alomst all the C++ 11 concepts from zero level to a
 
 [7. Class vs Struct](#7-class-vs-struct)
 
-[8. Access Specifiers](#8-access-Specifiers)
+[8. Access Specifiers](#8-access-specifiers)
+
+[9. Const in C++](#8-const-in-c++)
 
 ------------------------------------------------------------------------------------------------------------------------------------
 ## 1. C++ 11 Introduction ##
@@ -228,4 +230,75 @@ Apart from this there is no difference. struct can be used for accumulating data
 | protected   | private |
 | private	| none |
 
+## 9. Const in C++ ##
+   ### Function overloading and const keyword ###
+<pre><code>
 
+//Member function overloading Example
+class Test 
+{ 
+protected: 
+    int x; 
+public: 
+    Test (int i):x(i) { } 
+    void fun() const //called by const object
+    { 
+        cout << "fun() const called " << endl; 
+    } 
+    void fun() //called by non-const object
+    { 
+        cout << "fun() called " << endl; 
+    } 
+}; 
+
+// PROGRAM 1 (Fails in compilation) bcz pass by value
+void fun(const int i) 
+{ 
+    cout << "fun(const int) called "; 
+} 
+void fun(int i) 
+{ 
+    cout << "fun(int ) called " ; 
+} 
+int main() 
+{ 
+    const int i = 10; 
+    fun(i); 
+    return 0; 
+} 
+
+// PROGRAM 2 (Compiles and runs fine) 
+void fun(char *a) 
+{ 
+  cout << "non-const fun() " << a; 
+} 
+  
+void fun(const char *a) 
+{ 
+  cout << "const fun() " << a; 
+} 
+  
+int main() 
+{ 
+  const char *ptr = "GeeksforGeeks"; 
+  fun(ptr); 
+  return 0; 
+} 
+
+// PROGRAM 3 (Compiles and runs fine)
+void fun(const int &i) 
+{ 
+    cout << "fun(const int &) called "; 
+} 
+void fun(int &i) 
+{ 
+    cout << "fun(int &) called " ; 
+} 
+int main() 
+{ 
+    const int i = 10; 
+    fun(i); 
+    return 0; 
+} 
+</code></pre>
+C++ allows functions to be overloaded on the basis of const-ness of parameters only if the const parameter is a reference or a pointer.
