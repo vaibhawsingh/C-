@@ -250,7 +250,8 @@ public:
         cout << "fun() called " << endl; 
     } 
 }; 
-
+</code></pre>
+<pre><code>
 // PROGRAM 1 (Fails in compilation) bcz pass by value
 void fun(const int i) 
 { 
@@ -266,7 +267,8 @@ int main()
     fun(i); 
     return 0; 
 } 
-
+</code></pre>
+<pre><code>
 // PROGRAM 2 (Compiles and runs fine) 
 void fun(char *a) 
 { 
@@ -284,7 +286,8 @@ int main()
   fun(ptr); 
   return 0; 
 } 
-
+</code></pre>
+<pre><code>
 // PROGRAM 3 (Compiles and runs fine)
 void fun(const int &i) 
 { 
